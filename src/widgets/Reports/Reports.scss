@@ -1,0 +1,213 @@
+.reports {
+  width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(1975);
+
+  &__tabs-scroll {
+    max-width: 100%;
+    min-width: ptrm(0);
+
+    .simplebar-track.simplebar-horizontal {
+      height: ptrm(14);
+      bottom: ptrm(2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.55s ease 0.45s;
+
+      .simplebar-scrollbar {
+        top: ptrm(3);
+        height: ptrm(8);
+
+        &::before {
+          inset: 0;
+          height: ptrm(8);
+          border-radius: ptrm(100);
+          opacity: 1;
+        }
+      }
+    }
+
+    &.simplebar-scrolling,
+    &.simplebar-dragging,
+    &:focus-within {
+      .simplebar-track.simplebar-horizontal {
+        opacity: 1;
+        pointer-events: auto;
+        transition-delay: 0s;
+        transition-duration: 0.2s;
+      }
+    }
+  }
+
+  &__tabs {
+    width: max-content;
+    min-width: 100%;
+    padding: ptrm(10);
+    display: flex;
+    gap: ptrm(10);
+    border-radius: ptrm(10);
+    border: var(--border);
+    background-color: var(--color-dark);
+  }
+
+  &__tab {
+    max-width: calc(100vw - (var(--container-padding) * 2));
+    min-width: ptrm(0);
+    color: var(--color-grey-60);
+    padding: ptrm(18) ptrm(30);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: ptrm(8);
+    border: var(--border);
+    @include trns;
+
+    &[aria-pressed="true"] {
+      color: var(--color-light);
+      background-color: var(--color-dark-15);
+    }
+
+    @include hover {
+      color: var(--color-main);
+      border-color: var(--color-main);
+    }
+  }
+
+  &__tab-text {
+    max-width: 100%;
+    min-width: ptrm(0);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: minmax(ptrm(280), ptrm(520)) 1fr;
+    border-bottom: var(--border);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__aside {
+    padding: fluid(80, 40) fluid(80, 0) fluid(80, 40) 0;
+    display: flex;
+    gap: fluid(40, 24);
+    flex-direction: column;
+    justify-content: center;
+    border-right: var(--border);
+
+    @include tablet {
+      border-right: none;
+      border-bottom: var(--border);
+    }
+  }
+
+  &__icon {
+    @include square(fluid(80, 56));
+    object-fit: contain;
+  }
+
+  &__info,
+  &__copy {
+    display: flex;
+    gap: ptrm(12);
+    flex-direction: column;
+  }
+
+  &__title {
+    color: var(--color-light);
+    font-family: var(--font-kumbh-sans);
+    @include fluid-text(38, 22);
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0;
+  }
+
+  &__main {
+    padding: fluid(80, 40) 0 fluid(80, 40) fluid(80, 0);
+    display: flex;
+    gap: ptrm(30);
+    flex-direction: column;
+
+    @include tablet {
+      padding-inline-start: 0;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: fluid(332, 190);
+    display: block;
+    object-fit: cover;
+    border-radius: ptrm(12);
+    background-color: var(--color-dark-10);
+  }
+
+  &__row {
+    display: flex;
+    gap: ptrm(24);
+    align-items: center;
+    justify-content: space-between;
+
+    @include mobile {
+      align-items: start;
+      flex-direction: column;
+    }
+  }
+
+  &__subtitle {
+    color: var(--color-light);
+    font-size: ptrm(24);
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  &__description,
+  &__text,
+  &__detail-label {
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: 0;
+
+    @include mobile {
+      font-size: ptrm(16);
+    }
+  }
+
+  &__button {
+    flex-shrink: 0;
+  }
+
+  &__details {
+    display: grid;
+    gap: ptrm(20);
+    grid-template-columns: repeat(3, 1fr);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__detail {
+    padding: fluid(30, 20);
+    border-radius: ptrm(12);
+    border: var(--border);
+    background-color: var(--color-dark-10);
+  }
+
+  &__detail-label {
+    margin-block-end: ptrm(4);
+  }
+
+  &__detail-value {
+    color: var(--color-light);
+    font-size: ptrm(20);
+    font-weight: 600;
+    line-height: 150%;
+  }
+}

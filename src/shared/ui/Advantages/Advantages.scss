@@ -1,0 +1,110 @@
+.advantages {
+  width: 100%;
+  display: flex;
+  gap: ptrm(10);
+  flex-direction: column;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__card {
+    height: 100%;
+    padding-block: fluid(50, 30);
+    padding-inline: fluid(80, 16);
+    display: flex;
+    gap: fluid(30, 16);
+    flex-direction: column;
+    position: relative;
+    border-right: var(--border);
+
+    @include mobile {
+      border-right: none;
+      border-bottom: var(--border);
+    }
+
+    &-link {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      position: absolute;
+      top: ptrm(0);
+      left: ptrm(0);
+      z-index: 1;
+    }
+
+    &-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-info {
+      display: flex;
+      gap: ptrm(10);
+      flex-direction: column;
+    }
+
+    &-title {
+      color: var(--color-light);
+      font-size: ptrm(20);
+      font-weight: 500;
+      letter-spacing: ptrm(-0.6);
+
+      @include tablet {
+        font-size: ptrm(16);
+      }
+    }
+
+    &-text {
+      color: var(--color-grey-50);
+      display: inline-block;
+      font-size: var(--font-size-default);
+      letter-spacing: ptrm(-0.54);
+      @include trns;
+
+      @include tablet {
+        font-size: ptrm(16);
+      }
+    }
+
+    &:has(.advantages__card-link) {
+      @include hover {
+        .advantages__card-text {
+          color: var(--color-main);
+        }
+      }
+
+      &:active {
+        .advantages__card-text {
+          scale: var(--scale);
+        }
+      }
+    }
+
+    &-icon {
+      @include square(fluid(50, 30));
+
+      &::before {
+        @include square(ptrm(24));
+        position: absolute;
+        background-color: var(--color-dark) !important;
+      }
+
+      &::after {
+        content: "";
+        @include square(fluid(50, 40));
+        display: inline-block;
+        flex-shrink: 0;
+        border-radius: ptrm(100);
+        background-color: var(--color-main);
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.badge {
+  color: var(--color-light) !important;
+  padding: ptrm(4) ptrm(12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: ptrm(16);
+  border-radius: ptrm(6);
+  border: ptrm(1) solid transparent;
+  background: 
+    linear-gradient(var(--color-dark-10), var(--color-dark-10)) padding-box, 
+    linear-gradient(45deg, var(--color-dark-15) 64%, var(--color-main) 136%) border-box
+}
+

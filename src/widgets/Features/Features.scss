@@ -1,0 +1,115 @@
+.features {
+  width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(1140);
+
+  &__inner {
+    width: 100%;
+  }
+
+  &__item {
+    width: 100%;
+    min-height: ptrm(570);
+    display: flex;
+   
+    &:not(:last-child) {
+      border-bottom: var(--border);
+    }
+
+    @include tablet {
+      flex-direction: column;
+    }
+
+    &-content {
+      width: 100%;
+      display: flex;
+
+      &.container {
+        padding-inline: ptrm(0);
+      }
+
+      @include tablet {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__main {
+    width: 50%;
+    padding: fluid(80, 16);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: var(--border);
+
+    @include tablet {
+      width: auto;
+      border-right: none;
+    }
+  }
+
+  &__icon {
+    @include square(fluid(80, 50));
+    object-fit: cover;
+  }
+
+  &__title {
+    color: var(--color-light);
+    margin-block: fluid(50, 20) fluid(16, 6);
+    font-weight: 600;
+    @include fluid-text(40, 24);
+  }
+
+  &__subtitle {
+    color: var(--color-grey-60);
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: ptrm(-0.54);
+  }
+
+  &__list {
+    padding: fluid(80, 16);
+    display: grid;
+    gap: fluid(30, 10);
+    grid-template-columns: repeat(2, 1fr);
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-item {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__card {
+    width: 100%;
+    height: 100%;
+    padding: fluid(40, 24);
+    display: flex;
+    gap: ptrm(10);
+    flex-direction: column;
+    border-radius: ptrm(12);
+    border: var(--border);
+    background-color: var(--color-dark-10);
+
+    &-title {
+      color: var(--color-light);
+      max-width: ptrm(600);
+      @include fluid-text(24, 18);
+      font-weight: 500;
+      letter-spacing: ptrm(-0.72);
+    }
+
+    &-text {
+      color: var(--color-grey-60);
+      max-width: ptrm(365);
+      font-size: var(--font-size-default);
+      line-height: 150%;
+      letter-spacing: ptrm(-0.54);
+    }
+  }
+}
+

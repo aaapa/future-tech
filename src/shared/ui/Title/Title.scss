@@ -1,0 +1,29 @@
+.title {
+  color: var(--color-light);
+  font: 500 130% var(--font-kumbh-sans);
+
+  &--bigest {
+    @include fluid-text(80, 28);
+  }
+
+  &--big {
+    @include fluid-text(70, 30);
+  }
+
+  &--medium {
+    @include fluid-text(58, 28);
+  }
+
+  &--small {
+    font-size: ptrm(28);
+
+    @include tablet {
+      font-size: ptrm(22);
+    }
+
+    @include mobile {
+      font-size: ptrm(18);
+    }
+  }
+}
+

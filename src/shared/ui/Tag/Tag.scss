@@ -1,0 +1,13 @@
+.tag {
+  color: var(--color-light);
+  font-size: var(--font-size-default);
+  font-weight: 500;
+  border-radius: ptrm(4);
+  padding: ptrm(6) ptrm(10);
+  background-color: var(--color-dark-20);
+
+  @include mobile {
+    font-size: ptrm(16);
+  }
+}
+

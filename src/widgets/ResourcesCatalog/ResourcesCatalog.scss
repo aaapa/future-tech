@@ -1,0 +1,132 @@
+.resources-catalog {
+  width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(3000);
+
+  &__metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: var(--border);
+    border-bottom: var(--border);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__metric {
+    padding-block: fluid(50, 30);
+    display: flex;
+    gap: ptrm(8);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &:not(:last-child) {
+      border-right: var(--border);
+    }
+
+    @include tablet {
+      &:nth-child(2) {
+        border-right: none;
+      }
+    }
+
+    @include mobile {
+      border-right: none !important;
+
+      &:not(:last-child) {
+        border-bottom: var(--border);
+      }
+    }
+  }
+
+  &__metric-value {
+    color: var(--color-light);
+    @include fluid-text(40, 28);
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__metric-label,
+  &__card-text {
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: 0;
+
+    @include mobile {
+      font-size: ptrm(16);
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: var(--border);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__cards-item {
+    padding: fluid(80, 40) fluid(30, 0);
+
+    &:not(:last-child) {
+      border-right: var(--border);
+    }
+
+    @include tablet {
+      border-right: none !important;
+
+      &:not(:last-child) {
+        border-bottom: var(--border);
+      }
+    }
+  }
+
+  &__card {
+    height: 100%;
+    display: flex;
+    gap: ptrm(24);
+    flex-direction: column;
+  }
+
+  &__card-image {
+    width: 100%;
+    height: fluid(290, 185);
+    display: block;
+    object-fit: cover;
+    border-radius: ptrm(12);
+    background-color: var(--color-dark-10);
+  }
+
+  &__card-main {
+    display: flex;
+    gap: ptrm(12);
+    flex-direction: column;
+  }
+
+  &__card-title {
+    color: var(--color-light);
+    font-size: ptrm(24);
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  &__card-actions {
+    margin-block-start: auto;
+    display: grid;
+    gap: ptrm(16);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}

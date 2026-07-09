@@ -1,0 +1,48 @@
+.page-header {
+  width: 100%;
+  padding-block: fluid(130, 40) fluid(150, 40);
+  border-bottom: var(--border);
+
+  &__info {
+    display: grid;
+    gap: ptrm(20) fluid(80, 0);
+    grid-template-columns: auto 1fr;
+
+    @include mobile {
+      display: flex;
+      gap: ptrm(14);
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    grid-column: -1 / 1;
+    letter-spacing: ptrm(-2.4);
+
+    &-last-word.visually-hidden {
+      @include mobile {
+        position: static !important;
+        margin: auto !important;
+        border: none !important;
+        padding: ptrm(0) !important;
+        white-space: normal !important;
+        clip-path: none !important;
+        clip: auto !important;
+        overflow: auto !important;
+      }
+    }
+  }
+
+  &__subtitle {
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__desc {
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: ptrm(-0.54);
+  }
+}
+

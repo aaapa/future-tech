@@ -1,0 +1,21 @@
+.rating {
+  padding: ptrm(10) ptrm(16);
+  display: flex;
+  gap: ptrm(7);
+  align-items: center;
+  justify-content: center;
+  border-radius: ptrm(100);
+  border: var(--border);
+  background-color: var(--color-dark);
+
+  &__star {
+    @include square(ptrm(24));
+    background-color: #505050;
+    mask: url("/imgs/rating/rating__star.svg") center center / cover no-repeat;
+
+    &--filled {
+      background-color: var(--color-main);
+    }
+  }
+}
+

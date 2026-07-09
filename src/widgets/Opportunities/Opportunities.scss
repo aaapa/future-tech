@@ -1,0 +1,160 @@
+.opportunities {
+  width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(720);
+  padding-block: fluid(120, 40);
+  background-color: var(--color-section-background);
+
+  &__inner {
+    width: 100%;
+    display: flex;
+    gap: fluid(100, 40);
+    flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    gap: fluid(80, 20);
+    align-items: center;
+
+    @include mobile {
+      display: grid;
+      grid-template-columns: auto 1fr;
+    }
+  }
+
+  &__icon {
+    @include square(fluid(150, 60));
+  }
+
+  &__info {
+    display: flex;
+    gap: ptrm(16) fluid(30, 5);
+    align-items: start;
+    flex-direction: column;
+
+    @include mobile {
+      display: contents;
+    }
+  }
+
+  &__tag {
+    justify-self: start;  
+  }
+
+  &__title {
+    letter-spacing: ptrm(-1.74);
+
+    @include mobile {
+      grid-column: 1 / -1; 
+    }
+  }
+
+  &__desc {
+    color: var(--color-grey-50);
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: ptrm(-0.54);
+
+    @include mobile {
+      grid-column: 1 / -1; 
+    }
+  }
+
+  &__list {
+    padding: fluid(20, 10);
+    display: grid;
+    gap: fluid(20, 10);
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: ptrm(12);
+    border: var(--border);
+    background-color: var(--color-dark);
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-item {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__card {
+    height: 100%;
+    padding: fluid(40, 24);
+    display: flex;
+    gap: fluid(20, 10);
+    flex-direction: column;
+    position: relative;
+    border-radius: ptrm(12);
+    border: var(--border);
+    @include trns;
+    background-color: var(--color-section-background);
+
+    &-link {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: ptrm(0);
+      left: ptrm(0);
+      z-index: 2;
+      border-radius: ptrm(12);
+    }
+
+    &:has(.opportunities__card-link):active {
+      scale: var(--scale);
+    }
+
+    &-header {
+      width: 100%;
+      display: flex;
+      gap: ptrm(20);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-title {
+      color: var(--color-light);
+      font-size: ptrm(22);
+      font-weight: 600;
+      letter-spacing: ptrm(-0.66);
+      @include trns;
+    }
+
+    @include hover {
+      &:has(.opportunities__card-link) {
+        .opportunities__card-title {
+          color: var(--color-main);
+        }
+      }
+    }
+
+    &-icon {
+      @include square(fluid(52, 40));
+
+      &::before {
+        @include square(ptrm(24));
+        position: absolute;
+        background-color: var(--color-dark) !important;
+      }
+
+      &::after {
+        content: "";
+        @include square(fluid(52, 40));
+        display: inline-block;
+        flex-shrink: 0;
+        border-radius: ptrm(100);
+        background-color: var(--color-main);
+      }
+    }
+
+    &-desc {
+      font-size: var(--font-size-default);
+      line-height: 150%;
+      letter-spacing: ptrm(-0.54);
+    }
+  }
+}
+

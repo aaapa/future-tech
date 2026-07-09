@@ -1,0 +1,251 @@
+.news {
+  width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(1180);
+
+  &__inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &:has(.news__header) {
+      gap: fluid(60, 40);
+    }
+  }
+
+  &__item {
+    width: 100%;
+    padding-block: fluid(80, 40);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    &:not(:first-child) {
+      border-bottom: var(--border);
+    }
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    gap: ptrm(10);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__list {
+    display: grid;
+    gap: ptrm(30);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, ptrm(350)), 1fr));
+
+    &-item {
+      width: 100%;
+    }
+  }
+
+  &__card {
+    $card: &;
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-preview {
+      width: 100%;
+      height: ptrm(185);
+      object-fit: cover;
+      border-radius: ptrm(12);
+      box-shadow: ptrm(0) ptrm(4) ptrm(4) ptrm(0) rgba(0, 0, 0, 0.25);
+    }
+
+    &-content {
+      height: 100%;
+      display: flex;
+      gap: ptrm(20);
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-header {
+      width: 100%;
+      display: flex;
+      gap: ptrm(20);
+      flex-direction: column;
+    }
+    
+    &-info {
+      display: flex;
+      gap: ptrm(5);
+      align-items: start;
+      flex-direction: column;
+    }
+
+    &-title {
+      color: var(--color-light);
+      font-size: ptrm(20);
+      font-weight: 600;
+      line-height: 150%;
+      letter-spacing: ptrm(-0.6);
+    }
+
+    &-link {
+      display: inline-block;
+      letter-spacing: ptrm(-0.48);
+      @include trns;
+
+      @include hover {
+        color: var(--color-main);
+      }
+
+      &:active {
+        scale: var(--scale);
+      }
+    }
+
+    &-main {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-footer {
+      width: 100%;
+      display: flex;
+      gap: fluid(50, 30);
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-actions {
+      display: flex;
+      gap: ptrm(10);
+      align-items: center;
+
+      &-item {
+        display: flex;
+      }
+
+      &-button {
+        padding: ptrm(8) ptrm(16);
+        display: flex;
+        gap: ptrm(5);
+        align-items: center;
+        border: var(--border);
+        border-radius: ptrm(100);
+        @include trns;
+        background-color: var(--color-dark);
+
+        @include hover {
+          border-color: var(--color-main);
+        }
+
+        &:active {
+          scale: var(--scale);
+        }
+      }
+    }
+
+    &:has(#{$card}-main) {
+      display: flex;
+      gap: fluid(80, 30);
+      align-items: center;
+      flex-direction: row;
+
+      @include tablet {
+        flex-direction: column;
+      }
+
+      #{$card}-content {
+        gap: fluid(50, 20);
+      }
+
+      #{$card}-preview {
+        width: ptrm(515);
+        height: ptrm(427);
+
+        @include tablet {
+          width: 100%;
+          height: ptrm(212);
+        }
+      }
+
+      #{$card}-header {
+        gap: ptrm(0);
+      }
+
+      #{$card}-info {
+        gap: fluid(30, 5);
+      }
+
+      #{$card}-title {
+        @include fluid-text(32, 20);
+        letter-spacing: ptrm(-0.96);
+      }
+      
+      #{$card}-desc {
+        font-size: ptrm(20);
+        line-height: 150%;
+        letter-spacing: ptrm(-0.6);
+
+        @include mobile {
+          font-size: ptrm(16);
+        }
+      }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: fluid(50, 20);
+    flex-wrap: wrap;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-card {
+      display: flex;
+      gap: ptrm(5);
+      flex-direction: column;
+    }
+
+    &-label {
+      font-size: var(--font-size-default);
+      letter-spacing: ptrm(-0.54);
+      text-transform: capitalize;
+
+      @include mobile {
+        font-size: ptrm(16);
+      }
+    }
+
+    &-link {
+      color: var(--color-light);
+      display: inline-block;
+      font-size: var(--font-size-default);
+      letter-spacing: ptrm(-0.54);
+      @include trns;
+
+      @include hover {
+        color: var(--color-main);
+      }
+
+      &:active {
+        scale: var(--scale);
+      }
+
+      @include mobile {
+        font-size: ptrm(16);
+      }
+    }
+
+    &-value {
+      color: var(--color-light);
+      font-size: var(--font-size-default);
+    }
+  }
+}
+

@@ -1,0 +1,64 @@
+.resources-preview {
+  display: flex;
+  gap: ptrm(30);
+  align-items: start;
+  justify-content: end;
+  flex-direction: column;
+  background: url("/imgs/resources-preview/resources-preview__background.webp") center center / cover no-repeat;
+
+  @include mobile {
+    background: url("/imgs/resources-preview/resources-preview__background-mobile.webp") no-repeat;
+    background-size: contain;
+  }
+
+  &__team {
+    padding: ptrm(10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: ptrm(100);
+    border: var(--border);
+    background-color: var(--color-dark-10);
+
+    &-person {
+      @include square(ptrm(60));
+      margin-inline-start: ptrm(-14);
+      border-radius: ptrm(42);
+      border: ptrm(1) solid var(--color-dark-40);
+      background-color: var(--color-dark-15);
+
+      &:first-child {
+        margin-inline-start: ptrm(0);
+      }
+
+      @include mobile {
+        @include square(ptrm(40));
+      }
+    }
+  }
+
+  &__main {
+    display: flex;
+    gap: ptrm(14);
+    flex-direction: column;
+  }
+
+  &__title {
+    color: var(--color-light);
+    font-weight: 500;
+    @include fluid-text(24, 18);
+    letter-spacing: ptrm(-0.72);
+  }
+
+  &__desc {
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: ptrm(-0.54);
+  }
+
+  &__button {
+    @include tablet {
+      width: 100%;
+    }
+  }
+}

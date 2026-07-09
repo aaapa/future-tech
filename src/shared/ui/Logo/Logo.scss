@@ -1,0 +1,20 @@
+.logo {
+  display: inline-block;
+  @include trns;
+
+  @include hover {
+    filter: brightness(0.8);
+  }
+
+  &:active {
+    scale: var(--scale);
+  }
+
+  &__image {
+    max-width: fluid(180, 145);
+    flex-shrink: 0;
+    object-fit: cover;
+    @include trns;
+  }
+}
+

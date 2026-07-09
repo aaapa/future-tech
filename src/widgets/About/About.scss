@@ -1,0 +1,116 @@
+.about {
+  width: 100%;
+
+  &__inner {
+    width: 100%;
+
+    &.container {
+      padding: ptrm(0);
+    }
+  }
+
+  &__main {
+    width: 100%;
+    display: flex;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    width: 100%;
+    max-width: 60%;
+    border-right: var(--border);
+
+    @include tablet {
+      max-width: none;
+    }
+
+    &-main {
+      width: 100%;
+      padding-block: fluid(150, 40) fluid(100, 30);
+      padding-inline-end: fluid(50, 16);
+
+      @include tablet {
+        padding-inline-start: ptrm(16);
+      }
+    }
+  }
+
+  &__subtitle {
+    color: var(--color-dark-40);
+    @include fluid-text(30, 18);
+    font-weight: 500;
+    font-family: var(--font-kumbh-sans);
+    letter-spacing: ptrm(-0.9);
+  }
+
+  &__title {
+    margin-block: ptrm(30) ptrm(20);
+
+    @include tablet {
+      margin-block-start: ptrm(20);
+    }
+  }
+
+  &__desc {
+    color: var(--color-grey-50);
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: ptrm(-0.54);
+
+    @include tablet {
+      font-size: ptrm(16);
+    }
+  }
+
+  &__resources-preview {
+    padding-block-end: fluid(80, 50);
+    padding-inline: fluid(80, 40);
+    border-bottom: var(--border);
+
+    @include tablet {
+      padding-block-start: ptrm(100);
+    }
+  }
+
+  &__metrics {
+    width: 100%;
+    border-block: var(--border);
+
+    .metrics__list-item:first-child {
+      .metrics__card {
+        padding-inline-start: ptrm(0);
+
+        @include tablet {
+          padding-inline-start: fluid(50, 20);
+        }
+      }
+    }
+
+    .metrics__list-item:last-child {
+      .metrics__card {
+        border-right: none;
+      }
+    }
+  }
+
+  &__advantages {
+    .advantages__list-item:first-child {
+      .advantages__card {
+        padding-inline-start: ptrm(0);
+
+        @include tablet {
+          padding-inline-start: fluid(80, 16);
+        }
+      }
+    }
+
+    .advantages__list-item:last-child {
+      .advantages__card {
+        border-right: none;
+      }
+    }
+  }
+}

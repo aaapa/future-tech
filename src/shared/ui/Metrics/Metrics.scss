@@ -1,0 +1,41 @@
+.metrics {
+  display: flex;
+  gap: ptrm(10);
+  flex-direction: column;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__card {
+    height: 100%;
+    padding: fluid(50, 20);
+    display: flex;
+    gap: fluid(30, 10);
+    justify-content: start;
+    flex-direction: column-reverse;
+    border-right: var(--border);
+  }
+
+  &__key {
+    font-size: var(--font-size-default);
+    letter-spacing: ptrm(-0.54);
+
+    @include mobile {
+      font-size: ptrm(14);
+    }
+  }
+
+  &__value {
+    color: var(--color-light);
+    display: flex;
+    @include fluid-text(40, 24);
+    font-weight: 600;
+    letter-spacing: ptrm(-1.2);
+  }
+
+  &__sign {
+    color: var(--color-main);
+  }
+}

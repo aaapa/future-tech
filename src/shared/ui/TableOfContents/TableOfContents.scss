@@ -1,0 +1,51 @@
+.table-of-contents {
+  display: flex;
+  gap: ptrm(16);
+  flex-direction: column;
+
+  &__title {
+    font-size: var(--font-size-default);
+    font-weight: 400;
+    letter-spacing: ptrm(-0.54);
+  }
+
+  &__main {
+    padding: ptrm(20);
+    border-radius: ptrm(10);
+    background-color: var(--color-dark-10);
+  }
+
+  &__list {
+    margin-inline-start: ptrm(20);
+    display: flex;
+    gap: ptrm(20);
+    align-items: start;
+    flex-direction: column;
+
+    &-item {
+      color: var(--color-light);
+      list-style: disc;
+      @include trns;
+
+      @include hover {
+        color: var(--color-main);
+      }
+
+      &:active {
+        scale: var(--scale);
+      }    
+    }
+  }
+
+  &__link {
+    color: var(--color-light);
+    display: inline-block;
+    letter-spacing: ptrm(-0.50);
+    @include trns;
+
+    @include hover {
+      color: var(--color-main);
+    }
+  }
+}
+

@@ -1,0 +1,49 @@
+.promo {
+  width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(390);
+  padding-block: fluid(120, 40);
+  border-block: var(--border);
+  background-color: var(--color-dark-10);
+
+  &__inner {
+    width: 100%;
+    display: flex;
+    gap: ptrm(30);
+    align-items: center;
+    justify-content: space-between;
+
+    @include mobile {
+      align-items: start;
+      flex-direction: column;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: fluid(16, 10);
+    align-items: start;
+    flex-direction: column;
+  }
+
+  &__title {
+    max-width: ptrm(835);
+  }
+
+  &__button {
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__aside {
+    max-width: min(100%, ptrm(560));
+    min-width: 0;
+
+    @include tablet {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
+

@@ -1,0 +1,132 @@
+.episodes {
+  width: 100%;
+  content-visibility: auto;
+  contain-intrinsic-size: auto ptrm(1740);
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    padding: fluid(80, 40) fluid(30, 0);
+    border-bottom: var(--border);
+
+    &:not(:nth-child(3n)) {
+      border-right: var(--border);
+    }
+
+    @include tablet {
+      &:not(:nth-child(3n)) {
+        border-right: none;
+      }
+
+      &:nth-child(odd) {
+        border-right: var(--border);
+      }
+    }
+
+    @include mobile {
+      border-right: none !important;
+    }
+  }
+
+  &__card {
+    height: 100%;
+    display: flex;
+    gap: ptrm(24);
+    flex-direction: column;
+    align-items: start;
+  }
+
+  &__media {
+    position: relative;
+    width: 100%;
+    height: fluid(290, 185);
+    overflow: hidden;
+    border-radius: ptrm(12);
+    background-color: var(--color-dark-10);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgb(var(--color-dark-rgb) / 0%) 40%, var(--color-dark) 100%);
+      pointer-events: none;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  &__play {
+    @include square(fluid(70, 50));
+    @include flex-center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 18%);
+    backdrop-filter: blur(ptrm(10));
+    @include trns;
+
+    @include hover {
+      background-color: var(--color-main);
+
+      .icon::before {
+        background-color: var(--color-dark);
+      }
+    }
+  }
+
+  &__duration {
+    position: absolute;
+    right: ptrm(24);
+    bottom: ptrm(24);
+    z-index: 1;
+    color: var(--color-grey-50);
+    font-size: ptrm(16);
+  }
+
+  &__main {
+    display: flex;
+    gap: ptrm(10);
+    flex-direction: column;
+  }
+
+  &__title {
+    color: var(--color-light);
+    font-size: ptrm(22);
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 0;
+  }
+
+  &__text {
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: 0;
+
+    @include mobile {
+      font-size: ptrm(16);
+    }
+  }
+
+  &__button {
+    margin-block-start: auto;
+  }
+}

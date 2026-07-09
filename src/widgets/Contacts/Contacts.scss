@@ -1,0 +1,313 @@
+.contacts {
+  width: 100%;
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: var(--border);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    padding: fluid(80, 40) fluid(40, 0);
+    display: flex;
+    gap: ptrm(32);
+    flex-direction: column;
+
+    &:not(:last-child) {
+      border-right: var(--border);
+    }
+
+    @include tablet {
+      border-right: none !important;
+
+      &:nth-child(odd) {
+        border-right: var(--border) !important;
+      }
+
+      &:nth-child(-n + 2) {
+        border-bottom: var(--border);
+      }
+    }
+
+    @include mobile {
+      border-right: none !important;
+      border-bottom: var(--border);
+    }
+  }
+
+  &__card-title,
+  &__label,
+  &__faq-title,
+  &__faq-question {
+    color: var(--color-light);
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  &__card-title {
+    font-size: ptrm(20);
+    letter-spacing: ptrm(-0.6);
+  }
+
+  &__card-actions {
+    display: flex;
+    gap: ptrm(12);
+    flex-direction: column;
+    align-items: start;
+  }
+
+  &__card-button {
+    width: fit-content;
+    max-width: 100%;
+    padding: ptrm(14) ptrm(18);
+    overflow-wrap: anywhere;
+  }
+
+  &__card-text,
+  &__faq-text,
+  &__faq-answer,
+  &__agreement {
+    font-size: var(--font-size-default);
+    line-height: 150%;
+    letter-spacing: ptrm(-0.54);
+
+    @include mobile {
+      font-size: ptrm(16);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: ptrm(16);
+    flex-wrap: wrap;
+  }
+
+  &__social {
+    padding: ptrm(18) ptrm(28);
+    display: flex;
+    border-radius: ptrm(6);
+    border: var(--border);
+    background-color: var(--color-dark-10);
+    @include trns;
+
+    @include hover {
+      border-color: var(--color-main);
+    }
+  }
+
+  &__form-section,
+  &__faq {
+    display: grid;
+    grid-template-columns: minmax(ptrm(280), ptrm(520)) 1fr;
+    border-bottom: var(--border);
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__form-aside,
+  &__faq-aside {
+    padding: fluid(80, 40) fluid(80, 0) fluid(80, 40) 0;
+    display: flex;
+    gap: fluid(40, 24);
+    flex-direction: column;
+    justify-content: center;
+    border-right: var(--border);
+
+    @include tablet {
+      border-right: none;
+      border-bottom: var(--border);
+    }
+  }
+
+  &__form-mark,
+  &__faq-mark {
+    @include square(fluid(72, 48));
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 35%, var(--color-grey-60) 0 12%, transparent 13%),
+      radial-gradient(circle at 70% 35%, var(--color-main) 0 18%, transparent 19%),
+      radial-gradient(circle at 50% 72%, var(--color-main) 0 16%, transparent 17%);
+  }
+
+  &__faq-mark {
+    background:
+      radial-gradient(circle at 36% 35%, var(--color-grey-60) 0 15%, transparent 16%),
+      radial-gradient(circle at 64% 35%, var(--color-grey-60) 0 15%, transparent 16%),
+      radial-gradient(circle at 50% 67%, var(--color-main) 0 18%, transparent 19%);
+  }
+
+  &__form {
+    padding: fluid(80, 40) 0 fluid(80, 40) fluid(80, 0);
+    display: flex;
+    gap: ptrm(40);
+    flex-direction: column;
+
+    @include tablet {
+      padding-inline-start: 0;
+    }
+  }
+
+  &__form-row {
+    display: grid;
+    gap: ptrm(40);
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__field {
+    display: flex;
+    gap: ptrm(14);
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: var(--font-size-default);
+  }
+
+  &__input {
+    color: var(--color-light);
+    width: 100%;
+    padding: ptrm(20);
+    border-radius: ptrm(8);
+    border: var(--border);
+    background-color: var(--color-dark-10);
+    box-shadow: 0 0 0 ptrm(4) var(--color-section-background);
+    outline: none;
+    @include trns;
+
+    &::placeholder {
+      color: var(--color-dark-40);
+    }
+
+    &:focus {
+      border-color: var(--color-main);
+    }
+  }
+
+  &__textarea {
+    min-height: ptrm(160);
+    resize: vertical;
+  }
+
+  &__phone {
+    display: grid;
+    gap: ptrm(16);
+    grid-template-columns: auto 1fr;
+  }
+
+  &__country {
+    padding: ptrm(10) ptrm(16);
+    display: flex;
+    gap: ptrm(8);
+    align-items: center;
+    border-radius: ptrm(8);
+    border: var(--border);
+    background-color: var(--color-dark-10);
+
+    img {
+      @include square(ptrm(34));
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  &__form-footer {
+    display: flex;
+    gap: ptrm(24);
+    align-items: center;
+    justify-content: space-between;
+
+    @include mobile {
+      align-items: start;
+      flex-direction: column;
+    }
+  }
+
+  &__agreement {
+    color: var(--color-light);
+    display: flex;
+    gap: ptrm(10);
+    align-items: center;
+  }
+
+  &__checkbox {
+    @include square(ptrm(24));
+    accent-color: var(--color-main);
+  }
+
+  &__faq-aside {
+    align-items: start;
+  }
+
+  &__faq-title {
+    font-family: var(--font-kumbh-sans);
+    @include fluid-text(40, 24);
+    letter-spacing: ptrm(-1.2);
+  }
+
+  &__faq-list {
+    padding: fluid(80, 40) 0 fluid(80, 40) fluid(80, 0);
+    display: flex;
+    gap: ptrm(30);
+    flex-direction: column;
+
+    @include tablet {
+      padding-inline-start: 0;
+    }
+  }
+
+  &__faq-item {
+    padding: fluid(34, 22);
+    border-radius: ptrm(12);
+    border: var(--border);
+    background-color: var(--color-dark-10);
+  }
+
+  &__faq-question {
+    display: flex;
+    gap: ptrm(20);
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "+";
+      color: var(--color-main);
+      font-size: ptrm(24);
+      line-height: 1;
+    }
+  }
+
+  &__faq-item[open] {
+    .contacts__faq-question {
+      padding-block-end: ptrm(24);
+      border-bottom: var(--border);
+
+      &::after {
+        content: "-";
+      }
+    }
+  }
+
+  &__faq-answer {
+    padding-block-start: ptrm(24);
+  }
+}

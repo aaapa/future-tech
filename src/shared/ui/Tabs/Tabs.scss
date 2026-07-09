@@ -1,0 +1,9 @@
+.tabs {
+  &__tabpanel {
+    display: none;
+
+    &--open {
+      display: block;
+    }
+  }
+}
